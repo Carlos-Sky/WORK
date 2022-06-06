@@ -1,7 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Models\Target;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,14 @@ use App\Models\Target;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TargetController@index')->name('inicio');
+Route::get('contenido', 'TargetController@contenido')->name('contenido');
+Route::get('login', 'TargetController@login')->name('login');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
