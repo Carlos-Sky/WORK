@@ -20,76 +20,50 @@
             <div class="page-inner mt--5">
 
 
-
+                @csrf
 
 
                 <div class="row row-card-no-pd">
                     <div class="col-md-12">
-                        <h4 class="page-title">Oferta de trabajo</h4>
+                        <center>
+                            <h4 class="page-title">Oferta de trabajo</h4>
+                        </center>
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title">Gerente de ventas (Sin experiencia)</h4>
+                                        <h4 class="card-title">{{ $empresa->titulo }}</h4>
 
                                     </div>
                                     <div class="card-body">
-                                        <h1 class="card-title">3 Vacantes</h1>
+
                                         <div class="tab-content mt-2 mb-3" id="pills-tabContent">
 
                                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                                 aria-labelledby="pills-home-tab">
+                                                <h1 class="card-title">Numero de vacantes : {{ $empresa->vacante }}</h1>
+                                                <p>Nombre de la empresa : {{ $empresa->empresa }}</p>
+                                                <p>Salario mensual : $ {{ $empresa->paga }}</p>
+                                                <h3>Descripcion de la vacante</h3>
+                                                <p>{{ $empresa->descripcion1 }}</p>
 
-                                                <p>Prestaciones de ley (IMSS, vacaciones, aguinaldo)
-                                                    Capacitación pagada</p>
+                                                <p>{{ $empresa->descripcion2 }}</p>
+                                                <p>{{ $empresa->descripcion3 }}</p>
+                                                <p>{{ $empresa->descripcion4 }}</p>
+                                                <p>{{ $empresa->descripcion5 }}</p>
+                                                <p>{{ $empresa->descripcion6 }}</p>
+                                                <p>{{ $empresa->descripcion7 }}</p>
 
-                                                <p>A small river named Duden flows by their place and supplies it with the
-                                                    necessary regelialia.
-                                                    It is a paradisematic country, in which roasted parts of sentences fly
-                                                    into
-                                                    your mouth.</p>
                                             </div>
-                                            <div class="tab-pane fade" id="pills-profile" role="tabpanel"
-                                                aria-labelledby="pills-profile-tab">
-                                                <p>Consultor/App Specialist
 
-
-
-
-
-
-
-                                                    .</p>
-                                                <p> Recien egresados de Administración de empresas, Finanzas, Matematicas,
-                                                    Ingenierías, Actuaria o afines.
-
-                                                    • Ingles avanzado (escrito y hablado).
-
-                                                    • Entendimiento y conocimiento básico de lenguajes de programación
-                                                    (HTML,
-                                                    CSS, XML).
-
-                                                    • Te gusta trabajar en equipo y ser colaborativo con tus compañeros..
-                                                </p>
-                                                <p>El equipo Soho2 se conforma por profesionales con conocimiento profundo
-                                                    en
-                                                    CX para los diferentes mercados, ayudando a muchas de las marcas más
-                                                    destacadas en la administración y gestión de la experiencia del cliente
-                                                    y
-                                                    del empleado.
-                                                </p>
-                                            </div>
                                             <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                                                 aria-labelledby="pills-contact-tab">
-                                                <p>Categorías:</p>
+                                                <h4 class="page-title">Comunicate con nosotros !</h4>
+                                                <p>Nombre del contacto: {{ $empresa->usuario }}</p>
 
-                                                <p>
-
-                                                    Tecnologías de la Información - Sistemas
-
-                                                    Administrador de sistemas
-
-                                                    ID: 15464771</p>
+                                                <p>Telefono: {{ $empresa->telefono }}</p>
+                                                <p>Correo electronico: {{ $empresa->email }}</p>
+                                                <p>Nombre de la empresa: {{ $empresa->empresa }}</p>
                                             </div>
                                         </div>
                                         <ul class="nav nav-pills nav-secondary" id="pills-tab" role="tablist">
@@ -98,53 +72,21 @@
                                                     href="#pills-home" role="tab" aria-controls="pills-home"
                                                     aria-selected="true">Perfil</a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill"
-                                                    href="#pills-profile" role="tab" aria-controls="pills-profile"
-                                                    aria-selected="false">Profile</a>
-                                            </li>
+
                                             <li class="nav-item">
                                                 <a class="nav-link" id="pills-contact-tab" data-toggle="pill"
                                                     href="#pills-contact" role="tab" aria-controls="pills-contact"
-                                                    aria-selected="false">Categoria</a>
+                                                    aria-selected="false">Contacto directo a la empresa</a>
                                             </li>
+
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
 
-                            <div class="col-md-3">
-                                <div class="card">
-
-                                    <div class="row">
 
 
-
-
-
-                                        <div class="card card-profile">
-
-
-                                            <div class="card-body">
-                                                <div class="user-profile text-center">
-                                                    <div class="name">Audi</div>
-                                                    <div class="job">Gerente de ventas</div>
-                                                    <div class="desc">$25,0 - $ 40,00 Mil Mensual</div>
-
-                                                    <div class="view-profile">
-                                                        <a href="#" class="btn btn-dark btn-block">Postularse</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
 
 
 
@@ -167,11 +109,7 @@
                                 Empleos
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Help
-                            </a>
-                        </li>
+
 
                     </ul>
                 </nav>

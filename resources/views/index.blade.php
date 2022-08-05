@@ -1,6 +1,4 @@
 @extends('layout.main')
-
-
 @section('content')
     <div class="main-panel">
         <div class="content">
@@ -28,21 +26,24 @@
                                 <div class="container-fluid">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-md-5">
-                                                <form class="d-flex">
-                                                    <input class="form-control me-2" type="search" placeholder="Empleos"
+                                            <div class="col-md-12">
+                                                <form actionn="" method="get" class="d-flex">
+                                                    <input name="texto" value="{{ $texto }}"
+                                                        class="form-control me-2" type="search"
+                                                        placeholder="Buscar Empleos,área laboral o empresa"
                                                         aria-label="Search">
+
+
+                                                    <div class="col-md-2">
+                                                        <button class="btn btn-outline-primary"
+                                                            type="submit">Search</button>
+                                                    </div>
+
+
                                                 </form>
                                             </div>
-                                            <div class="col-md-5">
-                                                <form class="d-flex">
-                                                    <input class="form-control me-2" type="search" placeholder="Empleos"
-                                                        aria-label="Search">
-                                                </form>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <button class="btn btn-outline-primary" type="submit">Search</button>
-                                            </div>
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -50,95 +51,82 @@
                         </div>
                     </div>
                 </div>
-
-
-
 
 
                 <div class="row row-card-no-pd">
+
+
                     <div class="col-md-12">
-                        <h4 class="page-title">Disponibles</h4>
+
+
+
+                        <center>
+                            <h4 class="page-title">Vacantes Disponibles</h4>
+                        </center>
+
+
                         <div class="row justify-content-center align-items-center mb-5">
-                            <div class="col-md-3 pl-md-0">
-                                <div class="card-pricing2 card-secondary">
-                                    <div class="pricing-header">
-                                        <h3 class="fw-bold">CONSULTOR</h3>
-                                        <span class="sub-title">$ 45,000 Mensual + comisiones</span>
-                                    </div>
-                                    <div class="price-value">
-                                        <div class="value">
-                                            <span class="currency"></span>
-                                            <span class="amount">3<span< /span></span>
-                                            <span class="month">Vacantes</span>
+
+                            <div class="row">
+                                @if (count($empresas) <= 0)
+                                    <tr>
+
+                                        <center>
+                                            <h1 class="text-warning"">" No hay registros "</h1>
+                                        </center>
+                                    </tr>
+                                @else
+                                    @foreach ($empresas as $e)
+                                        <div class="col-md-4">
+
+                                            <div class="card-pricing2 card-secondary">
+
+                                                <div class="pricing-header">
+                                                    <h3 class="fw-bold">{{ $e->titulo }}</h3>
+                                                    <span class="sub-title">$ {{ $e->paga }} Mensual +
+                                                        comisiones</span>
+                                                </div>
+                                                <div class="price-value">
+                                                    <div class="value">
+                                                        <span class="currency"></span>
+                                                        <span class="amount">{{ $e->vacante }}<span< /span></span>
+                                                        <span class="month">Vacantes</span>
+                                                    </div>
+                                                </div>
+                                                <ul class="pricing-content">
+                                                    <li>{{ $e->descripcion }}</li>
+                                                    <li>{{ $e->descripcion1 }}</li>
+                                                    <li>{{ $e->descripcion2 }}</li>
+
+
+                                                    <li class="disable">{{ $e->descripcion3 }}</li>
+                                                    <li class="disable">{{ $e->descripcion4 }}</li>
+                                                </ul>
+                                                <a href="/contenido/{{ $e->id }}"
+                                                    class="btn btn-outline-primary btn-lg w-75 fw-bold mb-3">+
+                                                    Detalles</a>
+
+
+
+
+                                            </div>
+
+                                            <br><br>
+
+
                                         </div>
-                                    </div>
-                                    <ul class="pricing-content">
-                                        <li>Sueldo base + Bonos de productividad</li>
-                                        <li>Capacitación pagada</li>
-                                        <li>Incentivos mensuales adicionales</li>
-
-                                        <li class="disable">No trabajos forzados</li>
-                                        <li class="disable">No discriminacion</li>
-                                    </ul>
-                                    <a href="contenido"
-                                        class="btn btn-outline-primary btn-lg w-75 fw-bold mb-3">Postularse</a>
-                                </div>
+                                    @endforeach
+                                @endif
                             </div>
-                            <div class="col-md-3 pl-md-0">
-                                <div class="card-pricing2 card-primary">
-                                    <div class="pricing-header">
-                                        <h3 class="fw-bold">Gerente deventas</h3>
-                                        <span class="sub-title">$ 15,000 Mensual + comisiones</span>
-                                    </div>
-                                    <div class="price-value">
-                                        <div class="value">
-                                            <span class="currency"></span>
-                                            <span class="amount">1<span< /span></span>
-                                            <span class="month">Vacantes</span>
-                                        </div>
-                                    </div>
-                                    <ul class="pricing-content">
-                                        <li>Sueldo base + Bonos de productividad</li>
-                                        <li>Capacitación pagada</li>
-                                        <li>Incentivos mensuales adicionales</li>
-
-                                        <li class="disable">No trabajos forzados</li>
-                                        <li class="disable">No discriminacion</li>
-                                    </ul>
-                                    <a href="#" class="btn btn-outline-primary btn-lg w-75 fw-bold mb-3">Postularse</a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 pl-md-0">
-                                <div class="card-pricing2 card-secondary">
-                                    <div class="pricing-header">
-                                        <h3 class="fw-bold">Analista DE SISTEMAS</h3>
-                                        <span class="sub-title">$ 15,000 Mensual + comisiones</span>
-                                    </div>
-                                    <div class="price-value">
-                                        <div class="value">
-                                            <span class="currency"></span>
-                                            <span class="amount">1<span< /span></span>
-                                            <span class="month">Vacantes</span>
-                                        </div>
-                                    </div>
-                                    <ul class="pricing-content">
-                                        <li>Sueldo base + Bonos de productividad</li>
-                                        <li>Capacitación pagada</li>
-                                        <li>Incentivos mensuales adicionales</li>
-
-                                        <li class="disable">No trabajos forzados</li>
-                                        <li class="disable">No discriminacion</li>
-                                    </ul>
-                                    <a href="#" class="btn btn-outline-primary btn-lg w-75 fw-bold mb-3">Postularse</a>
-                                </div>
-                            </div>
-
 
                         </div>
 
-                    </div>
-                </div>
 
+                        {{ $empresas->links() }}
+
+                    </div>
+
+                </div>
 
             </div>
         </div>
@@ -166,7 +154,7 @@
         </footer>
     </div>
 
-    <!-- Custom template | don't include it in your project! -->
+    <!-- Custom template | don't include it in your project! ENGRANE -->
     <div class="custom-template">
         <div class="title">Settings</div>
         <div class="custom-content">

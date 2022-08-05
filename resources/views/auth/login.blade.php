@@ -16,8 +16,9 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    <input id="email" type="email"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -73,8 +74,16 @@
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif
+
+                                    {{-- <a href="{{ url('auth/google') }}">
+                                        <strong>Login Wit Google</strong>
+                                    </a> --}}
                                 </div>
                             </div>
+                            {{-- <hr>
+                            <a href="{{ route('google.login') }}" class="btn btn-google btn-user btn-block"><i
+                                    class="fab fa-google fa-fw">Login
+                                    Google</i></a> --}}
                         </form>
                     </div>
                 </div>

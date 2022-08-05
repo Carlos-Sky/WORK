@@ -21,6 +21,10 @@ class TargetController extends Controller
     public function index()
     {
         return view('index');
+        $query = BD::table('productos')
+            ->whereIn('id', $data)
+            ->get();
+        return $query;
     }
 
     public function contenido()
